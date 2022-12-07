@@ -1,0 +1,16 @@
+
+#nav {
+    background-color:#339999;
+    color:white;
+    width:200px;
+    height:300px;
+    float:left;
+}
+
+#section {
+    width:200px;
+    text-align:left;
+    float:left;
+    padding:10px;
+    background-color: #86b7fe;
+}
