@@ -2,6 +2,7 @@
 import {ENDPOINT} from "../../App.jsx";
 import {useForm} from "@mantine/form";
 import {Group, TextInput, Button, Select, Box} from "@mantine/core";
+import {useFocusTrap} from "@mantine/hooks";
 
 function checkEmail(email) {
     if (email.compare() === 'ac.kr') {
@@ -18,22 +19,24 @@ export function Register() {
             password_confirm: '',
             school: ''
         },
+        validate: (values) => ({
+            name: values.name.length < 2 ? 'Too short name' : null,
+            email: (/^\S+@\S+ac.kr+$/.test(values.email) ? null : 'Invalid email'),
+            password: values.password === values.password_confirm ? null : 'Check password',
+            schools: values.schools === '' ? 'plz select school' : null
+        }),
     });
+    const focusTrapRef = useFocusTrap();
 
     async function onSubmit(event) {
         event.preventDefault()
-        if (form.values.password !== form.values.password_confirm) {
-            console.log("check password")
-        }
-        else {
-            await fetch(`${ENDPOINT}/user/register`, {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify(form.values)
-            }).then((r) => r.json())
-        }
+        await fetch(`${ENDPOINT}/user/register`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(form.values)
+        }).then((r) => r.json())
     }
 
     const schools =[
@@ -45,14 +48,16 @@ export function Register() {
     return (
         <>
             <Box sx={{ maxWidth: 400 }} mx="auto">
-                <form onSubmit={onSubmit}>
-                    <TextInput label="Name" placeholder="Name" {...form.getInputProps('name')} />
-                    <TextInput label="Email" placeholder="Email" {...form.getInputProps('email')} />
-                    <TextInput label="password" placeholder="password" type={"password"} {...form.getInputProps('password')} />
-                    <TextInput label="password_confirm" placeholder="password_confirm" type={"password"} {...form.getInputProps('password_confirm')} />
+                <form onSubmit={form.onSubmit(onSubmit)}>
+                    <TextInput ref={focusTrapRef} label="이름" placeholder="이름" required={true}
+                               description={"본명을 입력해 주세요."} error={"!!!"} {...form.getInputProps('name')} />
+                    <TextInput label="Email" placeholder="Email" required={true}
+                               description={"학교 이메일을 입력해 주세요"} {...form.getInputProps('email')} />
+                    <TextInput label="비밀 번호" placeholder="비밀 번호" type={"password"} required={true} {...form.getInputProps('password')} />
+                    <TextInput label="비밀 번호 확인" placeholder="비밀 번호 확인" type={"password"} required={true} {...form.getInputProps('password_confirm')} />
                     <Select
-                        label="school"
-                        placeholder="Pick school"
+                        label="학교"
+                        placeholder="학교"
                         data={schools}
                         searchable
                         maxDropdownHeight={280}
@@ -60,7 +65,7 @@ export function Register() {
                     />
                     <Group position="center" mt="xl">
                         <Button type={"submit"} variant="outline">
-                            register
+                            가입
                         </Button>
                     </Group>
                 </form>

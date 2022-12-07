@@ -8,10 +8,6 @@ import {
     Box,
     Button,
     Anchor,
-    Center,
-    ScrollArea,
-    Divider,
-    UnstyledButton, Collapse,
 } from '@mantine/core';
 import {useDisclosure} from '@mantine/hooks';
 import {IconSearch, IconChevronDown} from '@tabler/icons';
@@ -56,18 +52,8 @@ const useStyles = createStyles((theme) => ({
             backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[6] : theme.colors.gray[0],
         },
     },
-    hiddenMobile: {
-        [theme.fn.smallerThan('sm')]: {
-            display: 'none',
-        },
-    },
-
-    hiddenDesktop: {
-        [theme.fn.largerThan('sm')]: {
-            display: 'none',
-        },
-    },
 }));
+
 let links = []
 
 class Link {
@@ -78,70 +64,58 @@ class Link {
     }
 }
 
-new Link("Feature", "/login")
-new Link("Feature", "/login")
-new Link("Feature", "/login")
+new Link("장터", "/login")
+new Link("Q&A", "/login")
+new Link("자유 게시판", "/login")
 new Link("Feature", "/login")
 
 export function HeaderSearch() {
-    const [opened, {toggle}] = useDisclosure(false, {
-        onOpen() {
-
-        },
-        onClose() {
-
-        }
-    });
+    const [opened, {toggle}] = useDisclosure(false, {});
     const {classes} = useStyles();
 
     const items = links.map((link) => (
-        <a
+        <Anchor
+            component={"a"}
             key={link.label}
             href={link.link}
             className={classes.link}
-            onClick={(event) => event.preventDefault()}
         >
             {link.label}
-        </a>
+        </Anchor>
     ));
 
     return (
-        <Box>
-            <Header height={56} className={classes.header} mb={120}>
-                <div className={classes.inner}>
-                    <Group>
-                        <Burger opened={opened} onClick={toggle} size="sm"/>
-                        <Drawer
-                            opened={opened}
-                            onClose={toggle}
-                            title="Menu"
-                            padding="xl"
-                            size="l"
-                        >
-                            {items}
-                        </Drawer>
-                        <MantineLogo size={28} />
+        <Header height={56} className={classes.header} mb={120}>
+            <div className={classes.inner}>
+                <Group>
+                    <Burger opened={opened} onClick={toggle} size="sm"/>
+                    <Drawer
+                        opened={opened}
+                        onClose={toggle}
+                        title="Menu"
+                        padding="xl"
+                        size="l"
+                    >
+                        {items}
+                    </Drawer>
+                    <MantineLogo size={28} />
+                </Group>
+
+                <Group>
+                    <Group ml={50} spacing={3} className={classes.links}>
+                        {items}
                     </Group>
-
-
-                    <Group>
-                        <Group ml={50} spacing={3} className={classes.links}>
-                            {items}
-                        </Group>
-                        <Input
-                            className={classes.search}
-                            placeholder="Search"
-                            icon={<IconSearch size={16} stroke={1.5}/>}
-                        />
-                    </Group>
-
-                    <Group className={classes.hiddenMobile}>
-                        <Button variant="default">Log in</Button>
-                        <Button>Sign up</Button>
-                    </Group>
-                </div>
-            </Header>
-        </Box>
-
+                    {/*<Input*/}
+                    {/*    className={classes.search}*/}
+                    {/*    placeholder="Search"*/}
+                    {/*    icon={<IconSearch size={16} stroke={1.5}/>}*/}
+                    {/*/>*/}
+                    <Button variant="default" component={"a"} href={"/login"} >
+                        Login
+                    </Button>
+                    <Button component={"a"} href={"/register"}>Sign up</Button>
+                </Group>
+            </div>
+        </Header>
     );
 }

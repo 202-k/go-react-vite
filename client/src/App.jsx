@@ -1,6 +1,6 @@
-import './App.css'
+// import './App.css'
 
-import "./templates/comp.css"
+// import "./templates/comp.css"
 import Login from "./templates/user/Login.jsx";
 import {BrowserRouter, Route, Router, Routes} from "react-router-dom";
 import {Register} from "./templates/user/Register";
