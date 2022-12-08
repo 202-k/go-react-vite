@@ -27,6 +27,8 @@ export function Login() {
         }).then((r) => r.json())
         if (data) {
             return redirect('/')
+        } else {
+
         }
     }
 
@@ -36,7 +38,7 @@ export function Login() {
                 <form onSubmit={form.onSubmit(onSubmit)}>
                     <TextInput label="Email" placeholder="Email" ref={focusTrapRef}
                                required={true} {...form.getInputProps('email')} />
-                    <TextInput label="비밀 번호" placeholder="비밀 번호" type={"password"}
+                    <TextInput label="비밀번호" placeholder="비밀번호" type={"password"}
                                required={true} {...form.getInputProps('password')} />
                     <Group position="center" mt="xl">
                         <Button type={"submit"} variant="outline">

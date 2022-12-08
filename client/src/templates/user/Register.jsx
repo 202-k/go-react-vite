@@ -4,12 +4,6 @@ import {Box, Button, Group, Select, TextInput} from "@mantine/core";
 import {useFocusTrap} from "@mantine/hooks";
 import {redirect} from "react-router-dom";
 
-function checkEmail(email) {
-    if (email.compare() === 'ac.kr') {
-
-    }
-}
-
 export function Register() {
     const form = useForm({
         initialValues: {
@@ -38,7 +32,9 @@ export function Register() {
             body: JSON.stringify(form.values)
         }).then((r) => r.json())
         if (data) {
-            return redirect('/register/done')
+            return redirect('/register/success')
+        } else {
+
         }
     }
 
@@ -56,9 +52,9 @@ export function Register() {
                                description={"본명을 입력해 주세요."} error={"!!!"} {...form.getInputProps('name')} />
                     <TextInput label="Email" placeholder="Email" required={true}
                                description={"학교 이메일을 입력해 주세요"} {...form.getInputProps('email')} />
-                    <TextInput label="비밀 번호" placeholder="비밀 번호" type={"password"}
+                    <TextInput label="비밀번호" placeholder="비밀번호" type={"password"}
                                required={true} {...form.getInputProps('password')} />
-                    <TextInput label="비밀 번호 확인" placeholder="비밀 번호 확인" type={"password"}
+                    <TextInput label="비밀번호 확인" placeholder="비밀번호 확인" type={"password"}
                                required={true} {...form.getInputProps('password_confirm')} />
                     <Select
                         label="학교"
