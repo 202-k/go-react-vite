@@ -4,11 +4,17 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fbe79ae6-64ce-4da1-a6d8-fa2f601b3372" name="Changes" comment="edit Register.jsx">
+    <list default="true" id="fbe79ae6-64ce-4da1-a6d8-fa2f601b3372" name="Changes" comment="add Footer.jsx">
+      <change afterPath="$PROJECT_DIR$/client/src/templates/Market.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/templates/PostBoard.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/templates/user/Register_success.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/templates/Button.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/templates/user/Login.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/templates/user/Login.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/templates/user/Register.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/templates/user/Register.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/templates/Footer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/templates/Fixed/Footer.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/templates/HeaderSearch.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/templates/Fixed/HeaderSearch.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/templates/Intro.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/templates/Intro.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/templates/Logo.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/templates/Nav.jsx" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,7 +38,9 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2IOuF3IqSDY7VNXTv8CvjvSTYse" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -59,6 +67,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\wns41\GolandProjects\go-react-vite\client\src\templates\Fixed" />
       <recent name="C:\Users\wns41\GolandProjects\go-react-vite\client\src\templates\user" />
       <recent name="C:\Users\wns41\GolandProjects\go-react-vite\client\src\templates" />
     </key>
@@ -129,7 +138,10 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="first commit" />
     <MESSAGE value="edit Register.jsx" />
-    <option name="LAST_COMMIT_MESSAGE" value="edit Register.jsx" />
+    <MESSAGE value="add redirection" />
+    <MESSAGE value="new Error pages" />
+    <MESSAGE value="add Footer.jsx" />
+    <option name="LAST_COMMIT_MESSAGE" value="add Footer.jsx" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
