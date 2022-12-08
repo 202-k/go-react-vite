@@ -1,46 +1,51 @@
-import Button from "../Button.jsx";
-import {useState} from "react";
 import {ENDPOINT} from "../../App.jsx";
+import {useForm} from "@mantine/form";
+import {useFocusTrap} from "@mantine/hooks";
+import {redirect} from "react-router-dom";
+import {Box, Group, TextInput, Button} from "@mantine/core";
 
 export function Login() {
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
+    const form = useForm({
+        initialValues: {
+            email: '',
+            password: '',
+        },
+        validate: (values) => ({
+            email: (/^\S+@\S+ac.kr+$/.test(values.email) ? null : 'Invalid email'),
+        }),
+    });
 
-    const emailChange = (event) => {
-        setEmail(event.target.value)
-    }
-
-    const passwordChange = (event) => {
-        setPassword(event.target.value)
-    }
+    const focusTrapRef = useFocusTrap();
 
     async function onSubmit(event) {
-        console.log("you clicked")
-        console.log({email})
-        event.preventDefault()
-        const data = await fetch(`${ENDPOINT}/user/login`, {
+        const data = fetch(`${ENDPOINT}/user/login`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
             },
-            body: {
-                email : {email},
-                password : {password}
-            },
-        }).then((r) => console.log(r.json()));
+            body: JSON.stringify(form.values)
+        }).then((r) => r.json())
+        if (data) {
+            return redirect('/')
+        }
     }
+
     return (
-        <div>
-            <form onSubmit={onSubmit}>
-                <label>
-                    <input onChange={emailChange} type={"text"} placeholder={"ID"} value={email}></input>
-                </label>
-                <label>
-                    <input onChange={passwordChange} type={"password"} placeholder={"Password"} value={password}></input>
-                </label>
-                <Button text={"submit"} />
-            </form>
-        </div>
+        <>
+            <Box sx={{maxWidth: 400}} mx="auto">
+                <form onSubmit={form.onSubmit(onSubmit)}>
+                    <TextInput label="Email" placeholder="Email" ref={focusTrapRef}
+                               required={true} {...form.getInputProps('email')} />
+                    <TextInput label="비밀 번호" placeholder="비밀 번호" type={"password"}
+                               required={true} {...form.getInputProps('password')} />
+                    <Group position="center" mt="xl">
+                        <Button type={"submit"} variant="outline">
+                            로그인
+                        </Button>
+                    </Group>
+                </form>
+            </Box>
+        </>
     )
 }
 

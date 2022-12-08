@@ -4,12 +4,10 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fbe79ae6-64ce-4da1-a6d8-fa2f601b3372" name="Changes" comment="first commit">
+    <list default="true" id="fbe79ae6-64ce-4da1-a6d8-fa2f601b3372" name="Changes" comment="edit Register.jsx">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/templates/HeaderSearch.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/templates/HeaderSearch.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/templates/Button.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/templates/user/Login.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/templates/user/Login.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/templates/user/Register.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/templates/user/Register.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -130,7 +128,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="first commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="first commit" />
+    <MESSAGE value="edit Register.jsx" />
+    <option name="LAST_COMMIT_MESSAGE" value="edit Register.jsx" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
