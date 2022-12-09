@@ -1,20 +1,20 @@
 import {
-    Input,
     Burger,
     createStyles,
     Drawer,
     Group,
     Header,
-    Box,
     Button,
     Anchor,
+    ActionIcon
 } from '@mantine/core';
 import {useDisclosure} from '@mantine/hooks';
-import {IconSearch, IconChevronDown} from '@tabler/icons';
+import {IconSearch, IconChevronDown, IconAlbum} from '@tabler/icons';
 import {MantineLogo} from '@mantine/ds';
 
 const useStyles = createStyles((theme) => ({
     header: {
+        marginBottom: 50,
         paddingLeft: theme.spacing.md,
         paddingRight: theme.spacing.md,
     },
@@ -64,9 +64,9 @@ class Link {
     }
 }
 
-new Link("장터", "/login")
+new Link("장터", "/market")
 new Link("Q&A", "/login")
-new Link("자유 게시판", "/login")
+new Link("자유게시판", "/login")
 new Link("Feature", "/login")
 
 export function HeaderSearch() {
@@ -85,7 +85,7 @@ export function HeaderSearch() {
     ));
 
     return (
-        <Header height={56} className={classes.header} mb={120}>
+        <Header height={56} className={classes.header} >
             <div className={classes.inner}>
                 <Group>
                     <Burger opened={opened} onClick={toggle} size="sm"/>
@@ -98,7 +98,8 @@ export function HeaderSearch() {
                     >
                         {items}
                     </Drawer>
-                    <MantineLogo size={28} />
+                    <ActionIcon component={'a'} href={'/'} size={50}> <MantineLogo size={28} /> </ActionIcon>
+
                 </Group>
 
                 <Group>

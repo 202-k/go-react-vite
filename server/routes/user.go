@@ -1,6 +1,8 @@
 package routes
 
 import (
+	"github.com/gofiber/fiber/v2"
+	"tryFiber/database"
 	"tryFiber/models"
 )
 
@@ -21,4 +23,23 @@ func ConvertSignUpInputToUser(signUp models.SignUpInput) models.User {
 		School:   signUp.School,
 		Verified: false,
 	}
+}
+
+//func FindUserExistence(c *fiber.Ctx) error {
+//	var user models.User
+//	c.BodyParser(&user)
+//	database.Database.Db.Find(&user, "email = ?", email)
+//
+//	if user.ID == 0 {
+//		return true
+//	} else {
+//		return false
+//	}
+//}
+
+func GetEmailList(c *fiber.Ctx) error {
+	var users []models.User
+	database.Database.Db.Select("email").Find(&users)
+
+	return c.JSON(users)
 }

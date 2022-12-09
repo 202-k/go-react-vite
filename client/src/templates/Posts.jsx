@@ -1,4 +1,5 @@
-import {createStyles, Grid} from "@mantine/core";
+import {Button, createStyles, Grid} from "@mantine/core";
+import {ENDPOINT} from "../App.jsx";
 
 
 const useStyles = createStyles((theme) => ({
@@ -21,19 +22,36 @@ const useStyles = createStyles((theme) => ({
 }))
 
 
+function Posts({board}) {
+    const {classes} = useStyles();
+    console.log(board)
+    // const data = fetch(`${ENDPOINT}/posts/${board}`, {}).then((r) => r.json())
+    // const posts = data.map((post) => (
+    //     <Grid>
+    //
+    //     </Grid>
+    // ))
 
-
-function Posts(){
-    const { classes } = useStyles();
     return (
         <>
-            <Grid columns={24} className={classes.gird} >
-                <Grid.Col span={3}>번호</Grid.Col>
-                <Grid.Col span={9}>제목</Grid.Col>
-                <Grid.Col span={5}>작성자</Grid.Col>
-                <Grid.Col span={4}>날짜</Grid.Col>
-                <Grid.Col span={2}>조회수</Grid.Col>
+            <Grid>
+                <Grid.Col offset={11} span={3}>
+                    <Button variant="outline" radius="md" size="xs" component={'a'} href={""}>
+                        글쓰기
+                    </Button>
+                </Grid.Col>
             </Grid>
+
+            <Grid columns={24} className={classes.gird}>
+                <Grid.Col span={3}>번호</Grid.Col>
+                <Grid.Col span={12}>제목</Grid.Col>
+                <Grid.Col span={3}>작성자</Grid.Col>
+                <Grid.Col span={3}>날짜</Grid.Col>
+                <Grid.Col span={3}>조회수</Grid.Col>
+            </Grid>
+
         </>
     )
 }
+
+export default Posts

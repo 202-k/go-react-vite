@@ -6,6 +6,7 @@ import (
 	"log"
 	"tryFiber/controller"
 	"tryFiber/database"
+	"tryFiber/routes"
 )
 
 func welcome(c *fiber.Ctx) error {
@@ -14,10 +15,13 @@ func welcome(c *fiber.Ctx) error {
 
 func setupRoutes(app *fiber.App) {
 	app.Get("/api", welcome)
+	app.Get("/api")
 
 	app.Post("/user/login", controller.Login)
 	app.Post("/user/register", controller.Register)
 	app.Post("/user/logout", controller.Logout)
+	app.Post("/posts/write", routes.WritePost)
+	//app.Get("/")
 }
 
 func setupStatics(app *fiber.App) {

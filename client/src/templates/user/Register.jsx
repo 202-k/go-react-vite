@@ -2,7 +2,16 @@ import {ENDPOINT} from "../../App.jsx";
 import {useForm} from "@mantine/form";
 import {Box, Button, Group, Select, TextInput} from "@mantine/core";
 import {useFocusTrap} from "@mantine/hooks";
-import {redirect} from "react-router-dom";
+import {useEffect} from "react";
+
+function getEmailList() {
+
+}
+async function getEmailList() {
+    const emails = await fetch(`${ENDPOINT}/api/emails`).then(r => r.json()).then((data) => {return data})
+    console.log(emails)
+    return emails
+}
 
 export function Register() {
     const form = useForm({
@@ -20,21 +29,38 @@ export function Register() {
             schools: values.schools === '' ? 'plz select school' : null
         }),
     });
-    const focusTrapRef = useFocusTrap();
+    useEffect(() => {
+        return () => {
+            getEmailList()
+        };
+    }, []);
 
+
+    const focusTrapRef = useFocusTrap();
+    let errorMsg = ""
+    async function onChangeEnd(event) {
+        event.preventDefault()
+
+    }
     async function onSubmit(event) {
         event.preventDefault()
+        // if didn't register before
         const data = await fetch(`${ENDPOINT}/user/register`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify(form.values)
-        }).then((r) => r.json())
-        if (data) {
-            return redirect('/register/success')
+        })
+        // location.href make url change
+        if (data.status == 200) {
+            location.href = "/register/success"
+            // location.replace("/register/success")
+        } else if (data.status == 406) {
+            errorMsg = "계정이 존재합니다."
         } else {
-
+            location.href = "/error503"
+            // location.replace("/error503")
         }
     }
 
@@ -47,10 +73,10 @@ export function Register() {
     return (
         <>
             <Box sx={{maxWidth: 400}} mx="auto">
-                <form onSubmit={form.onSubmit(onSubmit)}>
+                <form onSubmit={onSubmit} >
                     <TextInput ref={focusTrapRef} label="이름" placeholder="이름" required={true}
                                description={"본명을 입력해 주세요."} error={"!!!"} {...form.getInputProps('name')} />
-                    <TextInput label="Email" placeholder="Email" required={true}
+                    <TextInput label="Email" placeholder="Email" required={true} onChange={onChangeEnd}
                                description={"학교 이메일을 입력해 주세요"} {...form.getInputProps('email')} />
                     <TextInput label="비밀번호" placeholder="비밀번호" type={"password"}
                                required={true} {...form.getInputProps('password')} />
@@ -64,7 +90,9 @@ export function Register() {
                         maxDropdownHeight={280}
                         {...form.getInputProps('school')}
                     />
+
                     <Group position="center" mt="xl">
+                        {errorMsg ? null : errorMsg}
                         <Button type={"submit"} variant="outline">
                             가입
                         </Button>

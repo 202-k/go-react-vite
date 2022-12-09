@@ -1,7 +1,8 @@
-import {Button, Center, Container, Grid, Input, Pagination, Select} from "@mantine/core";
+import {Button, Center, Container, Grid, Input, Pagination, Select, Space} from "@mantine/core";
 import {useForm} from "@mantine/form";
 import {ENDPOINT} from "../App.jsx";
 import {redirect} from "react-router-dom";
+import Posts from "./Posts.jsx";
 
 
 function Market() {
@@ -32,15 +33,11 @@ function Market() {
     return (
         <>
             <Container px={"xs"} size={"xs"}>
-                this is market
+                <Posts board={"market"}/>
 
-                <Button variant="outline" radius="md" size="xs" component={'a'} href={""}>
-                    글쓰기
-                </Button>
-
-
+                <Space h="lg" />
+                <Space h="lg" />
                 {/*Search Area*/}
-
                 <form onSubmit={onSubmit}>
                     <Grid>
                         <Grid.Col span={2}>
@@ -75,6 +72,7 @@ function Market() {
 
                 </form>
 
+                <Space h="lg" />
                 <Center>
                     <Pagination total={20} siblings={2} initialPage={1} withControls={false}/>
                 </Center>

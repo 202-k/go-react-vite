@@ -9,7 +9,6 @@ import (
 	"time"
 	"tryFiber/database"
 	"tryFiber/models"
-	"tryFiber/routes"
 )
 
 const SecretKey = "weLoveSki"
@@ -21,7 +20,13 @@ func Register(c *fiber.Ctx) error {
 		return c.Status(fiber.StatusBadRequest).SendString("can't get SignUpUser")
 	}
 
-	fmt.Println(signUpInput)
+	var user models.User
+	database.Database.Db.Find(&user, "email = ?", signUpInput.Email)
+	fmt.Println(user)
+	if user.ID != 0 {
+		c.Status(fiber.StatusNotAcceptable)
+		return c.SendString("already exists")
+	}
 
 	password, err := bcrypt.GenerateFromPassword([]byte(signUpInput.Password), 14)
 	if err != nil {
@@ -29,9 +34,15 @@ func Register(c *fiber.Ctx) error {
 	}
 	signUpInput.Password = string(password)
 
-	var user models.User
-	user = routes.ConvertSignUpInputToUser(signUpInput)
+	user = models.User{
+		Email:    signUpInput.Email,
+		Name:     signUpInput.Name,
+		Password: signUpInput.Password,
+		School:   signUpInput.School,
+		Verified: false,
+	}
 	database.Database.Db.Create(&user)
+	c.Status(fiber.StatusOK)
 
 	return c.JSON(user)
 }
@@ -99,8 +110,10 @@ func Logout(c *fiber.Ctx) error {
 }
 
 // GetUser gets user information with cookie
-func GetUser(c *fiber.Ctx) error {
+func GetUser(c *fiber.Ctx) models.User {
 	cookie := c.Cookies("jwt")
+
+	var user models.User
 
 	token, err := jwt.ParseWithClaims(cookie, &jwt.StandardClaims{}, func(token *jwt.Token) (interface{}, error) {
 		return []byte(SecretKey), nil
@@ -108,16 +121,12 @@ func GetUser(c *fiber.Ctx) error {
 
 	if err != nil {
 		c.Status(fiber.StatusUnauthorized)
-		return c.JSON(fiber.Map{
-			"message": "unauthenticated",
-		})
+		return user
 	}
 
 	claims := token.Claims.(*jwt.StandardClaims)
 
-	var user models.User
-
 	database.Database.Db.Where("id = ?", claims.Issuer).First(&user)
 
-	return c.JSON(user)
+	return user
 }

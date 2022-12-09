@@ -3,9 +3,9 @@ import { createStyles, Container, Title, Text, Button, Group } from '@mantine/co
 
 const useStyles = createStyles((theme) => ({
     root: {
-        paddingTop: 120,
+        paddingTop: 10,
         paddingBottom: 120,
-        backgroundColor: theme.fn.variant({ variant: 'filled', color: theme.primaryColor }).background,
+        // backgroundColor: theme.fn.variant({ variant: 'filled', color: theme.primaryColor }).background,
     },
 
     inner: {
@@ -36,7 +36,7 @@ const useStyles = createStyles((theme) => ({
         textAlign: 'center',
         fontWeight: 900,
         fontSize: 38,
-        color: theme.white,
+        // color: theme.white,
 
         [theme.fn.smallerThan('sm')]: {
             fontSize: 32,
@@ -48,7 +48,7 @@ const useStyles = createStyles((theme) => ({
         margin: 'auto',
         marginTop: theme.spacing.xl,
         marginBottom: theme.spacing.xl * 1.5,
-        color: theme.colors[theme.primaryColor][1],
+        // color: theme.colors[theme.primaryColor][1],
     },
 }));
 
@@ -67,8 +67,8 @@ export function ServerOverload() {
                             refresh the page. Our team is already working on this issue.
                         </Text>
                         <Group position="center">
-                            <Button size="md" variant="white">
-                                Refresh the page
+                            <Button size="md"> {/*//variant="white">*/}
+                                메인 페이지
                             </Button>
                         </Group>
                     </div>
