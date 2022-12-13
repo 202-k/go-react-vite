@@ -4,9 +4,6 @@ import {Box, Button, Group, Select, TextInput} from "@mantine/core";
 import {useFocusTrap} from "@mantine/hooks";
 import {useEffect} from "react";
 
-function getEmailList() {
-
-}
 async function getEmailList() {
     const emails = await fetch(`${ENDPOINT}/api/emails`).then(r => r.json()).then((data) => {return data})
     console.log(emails)

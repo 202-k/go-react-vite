@@ -21,7 +21,7 @@ function App() {
                 <Route path={"/login"} element={<Login/>} />
                 <Route path={"/register"} element={<Register />} />
                 <Route path={"/register/success"} element={<RegisterSuccess />} />
-                <Route path={"/market"} element={<Market/>} />
+                <Route path={`/market?${page}`} element={<Market page/>} />
                 <Route path={"/market/post/write"} element={<PostBoard />}/>
                 <Route path={"/error503"} element={<ServerOverload />} />
             </Routes>

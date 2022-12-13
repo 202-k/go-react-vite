@@ -1,11 +1,11 @@
 import {Button, Center, Container, Grid, Input, Pagination, Select, Space} from "@mantine/core";
 import {useForm} from "@mantine/form";
 import {ENDPOINT} from "../App.jsx";
-import {redirect} from "react-router-dom";
 import Posts from "./Posts.jsx";
+import {useState} from "react";
 
 
-function Market() {
+function Market(page) {
     const form = useForm({
             initialValues: {
                 searchFor: 'title',
@@ -13,6 +13,9 @@ function Market() {
             },
         }
     )
+
+    const [activePage, setPage] = useState(1);
+
 
     async function onSubmit(event) {
         event.preventDefault()
@@ -24,7 +27,7 @@ function Market() {
             body: JSON.stringify(form.values)
         }).then((r) => r.json())
         if (data) {
-            return redirect('/market/search')
+            location.href = `/market/search?`
         } else {
 
         }
@@ -74,7 +77,7 @@ function Market() {
 
                 <Space h="lg" />
                 <Center>
-                    <Pagination total={20} siblings={2} initialPage={1} withControls={false}/>
+                    <Pagination page={activePage} onChange={setPage} total={20} siblings={2} />
                 </Center>
 
             </Container>
