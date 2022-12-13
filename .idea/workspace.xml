@@ -4,28 +4,8 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fbe79ae6-64ce-4da1-a6d8-fa2f601b3372" name="Changes" comment="new main page">
-      <change afterPath="$PROJECT_DIR$/client/src/templates/user/EmailCheck.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/templates/user/Register_success.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/505b60fb-3910-4316-a286-80818fba665c.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/505b60fb-3910-4316-a286-80818fba665c.xml" afterDir="false" />
+    <list default="true" id="fbe79ae6-64ce-4da1-a6d8-fa2f601b3372" name="Changes" comment="so tired">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/templates/Footer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/templates/Fixed/Footer.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/templates/HeaderSearch.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/templates/Fixed/HeaderSearch.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/templates/Market.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/templates/Market.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/templates/Posts.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/templates/Posts.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/templates/errorPages/Page503.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/templates/errorPages/Page503.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/templates/user/Register.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/templates/user/Register.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/api.db" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/controller/authController.go" beforeDir="false" afterPath="$PROJECT_DIR$/server/controller/authController.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/database/database.go" beforeDir="false" afterPath="$PROJECT_DIR$/server/database/database.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/server/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/models/post.go" beforeDir="false" afterPath="$PROJECT_DIR$/server/models/post.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/routes/order.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/routes/post.go" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/post.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/routes/product.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/routes/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/user.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -158,7 +138,8 @@
     <MESSAGE value="delete" />
     <MESSAGE value="add Styles" />
     <MESSAGE value="new main page" />
-    <option name="LAST_COMMIT_MESSAGE" value="new main page" />
+    <MESSAGE value="so tired" />
+    <option name="LAST_COMMIT_MESSAGE" value="so tired" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
